@@ -1,0 +1,15 @@
+[project]
+name = "search"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "anthropic>=0.96.0",
+    "dotenv>=0.9.9",
+    "fastapi>=0.121.1",
+    "pydantic>=2.13.1",
+    "tavily-python>=0.7.23",
+    "typer>=0.24.1",
+    "uvicorn>=0.38.0",
+]

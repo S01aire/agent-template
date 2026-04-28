@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+:root {
+  --bg-a: #f8f4ea;
+  --bg-b: #efe7d6;
+  --ink: #1f1a14;
+  --line: #c3b7a0;
+  --panel: #fffdf8;
+  --user: #e9dbc3;
+  --assistant: #f4efe3;
+  --system: #fdf8ec;
+  --accent: #9f531b;
+}
+
+@theme inline {
+  --color-background: var(--bg-a);
+  --color-foreground: var(--ink);
+  --font-sans: var(--font-space-grotesk);
+  --font-mono: var(--font-ibm-plex-mono);
+}
+
+body {
+  min-height: 100dvh;
+  margin: 0;
+  background: radial-gradient(circle at 10% 10%, var(--bg-b), var(--bg-a) 55%);
+  color: var(--ink);
+}
+
+.chat-shell {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 24px 12px;
+}
+
+.chat-panel {
+  width: min(900px, 100%);
+  height: min(88dvh, 920px);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--panel);
+  box-shadow: 0 10px 40px rgb(40 30 20 / 10%);
+  display: grid;
+  grid-template-rows: auto auto 1fr auto auto;
+  gap: 10px;
+  padding: 18px;
+}
+
+.chat-title {
+  margin: 0;
+  font-size: clamp(1.3rem, 2.2vw, 1.9rem);
+}
+
+.chat-subtitle {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #6f6559;
+}
+
+.chat-list {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.msg {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 12px;
+  white-space: pre-wrap;
+}
+
+.msg-user {
+  background: var(--user);
+}
+
+.msg-assistant {
+  background: var(--assistant);
+}
+
+.msg-system {
+  background: var(--system);
+}
+
+.chat-error {
+  margin: 0;
+  color: #ad2a22;
+  font-size: 0.85rem;
+}
+
+.chat-form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+}
+
+.chat-input {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font: inherit;
+  outline: none;
+}
+
+.chat-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgb(159 83 27 / 15%);
+}
+
+.chat-send {
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 14px;
+  background: var(--accent);
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+
+.chat-send:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 640px) {
+  .chat-panel {
+    height: 94dvh;
+    border-radius: 14px;
+    padding: 12px;
+  }
+
+  .chat-form {
+    grid-template-columns: 1fr;
+  }
+}
